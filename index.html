@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Luvly Lips — nourishing lip balms inspired by nature.">
+  <title>Luvly Lips | Small Balm, Big Joy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--rose:#b85e70;--rose-dark:#914355;--pink:#f8dfdf;--blush:#fff4f0;--cream:#fffdf9;--ink:#482b2b;--muted:#867575;--line:#eadbd6}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}
+    h1,h2,h3,.logo{font-family:"Playfair Display",serif}a{text-decoration:none;color:inherit}
+    .announcement{background:#f3d2d1;text-align:center;padding:8px 12px;font-size:11px;letter-spacing:.5px;color:#633e40}
+    .navbar{background:rgba(255,253,249,.97);padding:13px 0;box-shadow:0 2px 15px #5b33330a}
+    .logo{font-size:29px;line-height:1;color:var(--ink);letter-spacing:.5px}.logo small{display:block;font:600 9px "DM Sans",sans-serif;letter-spacing:3px;text-align:center;margin-top:5px}
+    .nav-link{font-size:12px;margin:0 10px;color:#5a4747}.nav-link:hover,.nav-link.active{color:var(--rose)}
+    .icon-btn{border:0;background:transparent;color:var(--ink);font-size:19px;padding:5px 8px;position:relative}
+    .cart-count{position:absolute;top:-1px;right:-1px;background:var(--rose);color:#fff;border-radius:50%;width:16px;height:16px;display:grid;place-items:center;font:10px "DM Sans",sans-serif}
+    .hero{min-height:480px;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,rgba(255,224,220,.96) 0%,rgba(255,224,220,.86) 34%,rgba(255,224,220,.05) 76%),url("https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=2000&q=85") center 48%/cover}
+    .hero-content{padding:70px 0;max-width:510px}.eyebrow,.kicker{font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--rose-dark)}
+    .hero h1{font-size:clamp(43px,6vw,70px);line-height:1.06;margin:17px 0}.hero p{max-width:390px;font-size:14px;line-height:1.85;color:#765858}
+    .btn-rose{background:var(--rose);border:1px solid var(--rose);color:white;border-radius:30px;padding:12px 23px;font-size:11px;letter-spacing:1px;text-transform:uppercase;transition:.25s}
+    .btn-rose:hover{background:var(--rose-dark);border-color:var(--rose-dark);color:#fff;transform:translateY(-2px)}
+    .btn-soft{border:1px solid var(--rose);color:var(--rose-dark);background:transparent;border-radius:30px;padding:11px 21px;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+    .hero-note{position:absolute;right:8%;top:12%;font-family:"Playfair Display",serif;font-style:italic;font-size:24px;line-height:1.1;transform:rotate(-7deg);color:#7d4448}
+    .benefits{background:#fffaf6;border-bottom:1px solid #f2e7e1}.benefit{padding:23px 12px;text-align:center;border-right:1px solid var(--line)}.benefit:last-child{border:0}.benefit i{font-size:25px;color:var(--rose-dark)}.benefit h3{font:600 12px "DM Sans",sans-serif;margin:8px 0 4px}.benefit p{font-size:10px;color:var(--muted);margin:0}
+    .section-pad{padding:68px 0}.section-title{font-size:clamp(30px,4vw,42px);margin:8px 0 10px}.section-desc{font-size:13px;line-height:1.8;color:var(--muted)}
+    .filter-btn{border:1px solid var(--line);background:transparent;padding:8px 16px;margin:3px;border-radius:25px;font-size:11px;color:#654b4b}.filter-btn.active,.filter-btn:hover{background:var(--rose);border-color:var(--rose);color:#fff}
+    .product-card{height:100%;background:#fff;border:1px solid #f0e5e0;transition:transform .25s,box-shadow .25s}.product-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #623b3b12}
+    .product-image{position:relative;aspect-ratio:1/1.02;overflow:hidden;background:#f8e4df}.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.product-card:hover .product-image img{transform:scale(1.05)}
+    .product-tag{position:absolute;top:10px;left:10px;background:#fff9f5;border-radius:20px;padding:5px 9px;font-size:9px;letter-spacing:.6px;text-transform:uppercase}
+    .wish{position:absolute;right:10px;top:10px;border:0;border-radius:50%;background:#fff9f5;width:31px;height:31px;color:#694448}.wish.liked{color:var(--rose)}
+    .product-info{padding:14px}.product-info h3{font:600 15px "DM Sans",sans-serif;margin:7px 0 3px}.flavor{font-size:10px;color:var(--muted)}.price{font-size:13px;font-weight:700;margin-top:6px}.stars{font-size:11px;color:var(--rose);margin:5px 0}.stars span{color:var(--muted);font-size:10px}
+    .add-btn{width:100%;background:var(--rose);border:1px solid var(--rose);color:#fff;border-radius:25px;padding:9px;font-size:10px;letter-spacing:.6px;transition:.2s}.add-btn:hover{background:var(--rose-dark)}
+    .story{background:#fae9e5}.story-img{width:100%;height:100%;min-height:380px;object-fit:cover;display:block}.story-copy{padding:45px clamp(25px,5vw,75px)}.story-copy h2{font-size:clamp(30px,4vw,43px);line-height:1.16}.story-point{display:flex;gap:12px;margin:17px 0;align-items:center}.story-point i{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#f5d7d8;color:var(--rose-dark);font-size:17px;flex-shrink:0}.story-point strong{display:block;font-size:11px}.story-point small{font-size:10px;color:var(--muted)}
+    .review-section{background:#fff3f1}.review-card{padding:18px}.avatar{width:52px;height:52px;object-fit:cover;border-radius:50%}.review-card p{font-size:11px;color:#765f5f;line-height:1.7}.review-card strong{font-size:11px}.review-stars{color:var(--rose);letter-spacing:2px;font-size:12px}
+    .newsletter{padding:60px 15px;background:#f9e2e0;text-align:center}.newsletter-form{display:flex;max-width:450px;margin:22px auto 0}.newsletter-form input{flex:1;min-width:0;border:1px solid #e3c8c5;padding:12px 15px;background:#fffaf8;font-size:12px;outline-color:var(--rose)}
+    footer{background:#884858;color:#fff1ef;padding:40px 0 18px}footer p,footer a{font-size:11px;color:#f0d9d9;line-height:2}footer a:hover{color:#fff}.footer-heading{font:600 10px "DM Sans",sans-serif;letter-spacing:2px;margin-bottom:15px}.social{font-size:19px;margin-right:14px}
+    .cart-line{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #f0e6e2;font-size:12px}.qty button{width:25px;height:25px;background:white;border:1px solid var(--line)}.toast-msg{position:fixed;right:20px;bottom:20px;z-index:1200;background:var(--ink);color:white;padding:13px 18px;font-size:12px;border-radius:5px;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none}.toast-msg.show{opacity:1;transform:none}
+    @media(max-width:767px){.hero{min-height:490px;background:linear-gradient(90deg,rgba(255,224,220,.95),rgba(255,224,220,.70)),url("https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1000&q=80") center/cover}.hero-content{padding:60px 12px}.hero-note{right:6%;top:6%;font-size:18px}.benefit{border-right:0;border-bottom:1px solid var(--line)}.section-pad{padding:52px 0}.story-img{min-height:300px}.story-copy{padding:35px 24px}.product-info{padding:10px}.product-info h3{font-size:13px}.newsletter-form{flex-direction:column;gap:8px}.logo{font-size:25px}}
+  </style>
+</head>
+<body>
+  <div class="announcement"><i class="bi bi-leaf me-1"></i> Free shipping on orders over ₹999 &nbsp; | &nbsp; Natural · Cruelty Free · Vegan</div>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand logo" href="#home">♥ Luvly Lips<small>L I P &nbsp; B A L M</small></a>
+      <div class="d-flex align-items-center gap-1 order-lg-3">
+        <button class="icon-btn" aria-label="Go to shop" onclick="document.getElementById('shop').scrollIntoView()"><i class="bi bi-search"></i></button>
+        <button class="icon-btn" aria-label="Shopping bag" data-bs-toggle="offcanvas" data-bs-target="#cartPanel"><i class="bi bi-bag"></i><span class="cart-count" id="cartCount">0</span></button>
+        <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      </div>
+      <div class="collapse navbar-collapse order-lg-2" id="navLinks">
+        <ul class="navbar-nav mx-auto align-items-lg-center mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li><li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li><li class="nav-item"><a class="nav-link" href="#about">About</a></li><li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li><li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container"><div class="hero-content">
+        <div class="eyebrow">Soft lips. Happy you.</div>
+        <h1 id="heroTitle">Nature’s Care<br>for Your Lips</h1>
+        <p id="heroText">Indulge in our nourishing lip balms made with natural ingredients. Soft, smooth, and beautifully you — every day.</p>
+        <a href="#shop" class="btn btn-rose mt-2">Shop now <i class="bi bi-arrow-right ms-2"></i></a>
+      </div></div>
+      <div class="hero-note">Small<br>Balm<br>Big Joy ♡</div>
+    </section>
+
+    <section class="benefits"><div class="container"><div class="row">
+      <div class="col-6 col-md-3 benefit"><i class="bi bi-leaf"></i><h3>Natural Ingredients</h3><p>Pure goodness for your lips</p></div>
+      <div class="col-6 col-md-3 benefit"><i class="bi bi-heart"></i><h3>Cruelty Free</h3><p>Kind to animals</p></div>
+      <div class="col-6 col-md-3 benefit"><i class="bi bi-flower1"></i><h3>Vegan Friendly</h3><p>Good for you and the planet</p></div>
+      <div class="col-6 col-md-3 benefit"><i class="bi bi-truck"></i><h3>Free Shipping</h3><p>On orders over ₹999</p></div>
+    </div></div></section>
+
+    <section class="section-pad" id="shop"><div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+        <div><div class="kicker">Our bestsellers</div><h2 class="section-title">Sweet Care, Naturally</h2><p class="section-desc mb-0">Your daily dose of softness, in a flavor you'll love.</p></div>
+        <a class="small text-danger" href="#shop" onclick="showAll()">View all <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="text-center mb-4" id="filters"><button class="filter-btn active" data-filter="all">All balms</button><button class="filter-btn" data-filter="fruity">Fruity</button><button class="filter-btn" data-filter="floral">Floral</button><button class="filter-btn" data-filter="fresh">Fresh</button></div>
+      <div class="row g-3 g-md-4" id="productGrid"></div>
+    </div></section>
+
+    <section class="story" id="about"><div class="row g-0 align-items-stretch">
+      <div class="col-lg-5"><img class="story-img" src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1000&q=85" alt="Natural beauty and skincare products" loading="lazy"></div>
+      <div class="col-lg-7"><div class="story-copy h-100"><div class="kicker">Our little story</div><h2>More than just<br>a lip balm.</h2><p class="section-desc mt-3">At Luvly Lips, we believe self-care is a little thing that makes a big difference. Our lip balms are made with care and inspired by nature, to keep your lips feeling soft, happy, and hydrated.</p><a href="#contact" class="btn btn-rose mt-2">Get to know us <i class="bi bi-arrow-right ms-1"></i></a>
+        <div class="row mt-3"><div class="col-sm-4 story-point"><i class="bi bi-flower1"></i><div><strong>Natural care</strong><small>Thoughtful ingredients</small></div></div><div class="col-sm-4 story-point"><i class="bi bi-droplet"></i><div><strong>Daily hydration</strong><small>Soft lips, all day</small></div></div><div class="col-sm-4 story-point"><i class="bi bi-palette"></i><div><strong>Lovely flavors</strong><small>A treat for your senses</small></div></div></div>
+      </div></div>
+    </div></section>
+
+    <section class="section-pad review-section" id="reviews"><div class="container">
+      <div class="text-center mb-4"><div class="kicker">Real people, real love</div><h2 class="section-title">What Our Customers Say</h2></div>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="review-card h-100"><div class="d-flex align-items-center gap-3"><img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Customer portrait"><div><strong>Sarah M.</strong><div class="review-stars">★★★★★</div></div></div><p class="mt-3 mb-0">“My lips have never felt softer! The strawberry flavor is my favorite.”</p></div></div>
+        <div class="col-md-4"><div class="review-card h-100"><div class="d-flex align-items-center gap-3"><img class="avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=150&q=80" alt="Customer portrait"><div><strong>Priya S.</strong><div class="review-stars">★★★★★</div></div></div><p class="mt-3 mb-0">“I love how light and lovely it feels. A little treat I keep in every bag.”</p></div></div>
+        <div class="col-md-4"><div class="review-card h-100"><div class="d-flex align-items-center gap-3"><img class="avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80" alt="Customer portrait"><div><strong>Emily R.</strong><div class="review-stars">★★★★★</div></div></div><p class="mt-3 mb-0">“The perfect little blend of care and color. The packaging is adorable too!”</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="newsletter" id="contact"><div class="kicker">A little love in your inbox</div><h2 class="section-title">Stay in the loop, lovely.</h2><p class="section-desc">Get new flavor alerts, lip-care tips, and sweet surprises.</p>
+      <form class="newsletter-form" id="newsletterForm"><input id="emailInput" type="email" placeholder="Your email address" required aria-label="Your email address"><button class="btn btn-rose" type="submit">Count me in <i class="bi bi-arrow-right ms-1"></i></button></form><p id="newsletterMessage" class="small mt-3 mb-0" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer><div class="container"><div class="row g-4">
+    <div class="col-lg-4"><a href="#home" class="logo text-white">♥ Luvly Lips<small>L I P &nbsp; B A L M</small></a><p class="mt-3">Small balm, big joy. A little love for your lips, every day.</p><a class="social" href="https://www.instagram.com/" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a class="social" href="https://www.pinterest.com/" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a><a class="social" href="https://www.facebook.com/" aria-label="Facebook"><i class="bi bi-facebook"></i></a></div>
+    <div class="col-6 col-lg-2"><h3 class="footer-heading">EXPLORE</h3><p><a href="#shop">Shop all</a><br><a href="#about">Our story</a><br><a href="#reviews">Reviews</a></p></div>
+    <div class="col-6 col-lg-2"><h3 class="footer-heading">NEED HELP?</h3><p><a href="mailto:hello@luvlylips.example">Contact us</a><br><a href="#contact">Shipping info</a><br><a href="#contact">FAQs</a></p></div>
+    <div class="col-lg-4"><h3 class="footer-heading">LET'S TALK LIPS</h3><p>Have a question or just want to say hi?</p><a href="mailto:hello@luvlylips.example">hello@luvlylips.example</a></div>
+  </div><hr style="border-color:#b77b87;margin-top:28px"><div class="d-flex flex-wrap justify-content-between gap-2"><p class="mb-0">© <span id="year"></span> Luvly Lips. All rights reserved.</p><p class="mb-0">Made with love ♡</p></div></div></footer>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartPanel" aria-labelledby="cartTitle"><div class="offcanvas-header border-bottom"><h5 class="offcanvas-title" id="cartTitle">Your Luvly Bag</h5><button class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body"><div id="cartItems"></div><div id="emptyCart" class="text-center py-5"><i class="bi bi-bag-heart" style="font-size:40px;color:var(--rose)"></i><p class="mt-3">Your bag is waiting for a little love.</p><button class="btn btn-rose" data-bs-dismiss="offcanvas">Keep shopping</button></div><div id="cartSummary" class="mt-4" hidden><div class="d-flex justify-content-between mb-3"><strong>Subtotal</strong><strong id="cartTotal">₹0</strong></div><p class="small text-muted">Shipping calculated at checkout.</p><button class="btn btn-rose w-100" onclick="checkout()">Proceed to checkout</button></div></div></div>
+  <div class="toast-msg" id="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const products=[
+      {id:1,name:"Strawberry Bliss",flavor:"Sweet strawberry",category:"fruity",price:299,tag:"Bestseller",rating:"4.8",image:"photo-1571781926291-c477ebfd024b"},
+      {id:2,name:"Vanilla Dream",flavor:"Soft vanilla",category:"floral",price:299,tag:"Fan favorite",rating:"4.7",image:"photo-1608248543803-ba4f8c70ae0b"},
+      {id:3,name:"Rose Glow",flavor:"Delicate rose",category:"floral",price:329,tag:"Lovely pick",rating:"4.6",image:"photo-1601049541289-9b1b7bbbfe19"},
+      {id:4,name:"Mint Fresh",flavor:"Cool mint",category:"fresh",price:279,tag:"Refreshing",rating:"4.5",image:"photo-1608571423902-eed4a5ad8108"},
+      {id:5,name:"Peach Kiss",flavor:"Juicy peach",category:"fruity",price:299,tag:"New",rating:"4.7",image:"photo-1596462502278-27bfdc403348"}
+    ];
+    const cart=[];const favorites=new Set();let filter="all";let toastTimer;
+    const money=n=>new Intl.NumberFormat("en-IN",{style:"currency",currency:"INR",maximumFractionDigits:0}).format(n);
+    function renderProducts(){
+      const shown=products.filter(p=>filter==="all"||p.category===filter);
+      document.getElementById("productGrid").innerHTML=shown.map(p=>`
+        <div class="col-6 col-lg"><article class="product-card">
+          <div class="product-image"><img src="https://images.unsplash.com/${p.image}?auto=format&fit=crop&w=650&q=80" alt="${p.name} lip balm" loading="lazy">
+            <span class="product-tag">${p.tag}</span><button class="wish ${favorites.has(p.id)?"liked":""}" onclick="toggleFavorite(${p.id})" aria-label="Toggle favorite"><i class="bi ${favorites.has(p.id)?"bi-heart-fill":"bi-heart"}"></i></button>
+          </div><div class="product-info"><div class="flavor">${p.flavor}</div><h3>${p.name}</h3><div class="price">${money(p.price)}</div><div class="stars">★★★★★ <span>(${p.rating})</span></div><button class="add-btn" onclick="addToCart(${p.id})"><i class="bi bi-bag-plus me-1"></i>Add to bag</button></div>
+        </article></div>`).join("");
+    }
+    document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));renderProducts()}));
+    function showAll(){filter="all";document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x.dataset.filter==="all"));renderProducts()}
+    function toggleFavorite(id){favorites.has(id)?favorites.delete(id):favorites.add(id);renderProducts();showToast(favorites.has(id)?"Added to your wishlist ♡":"Removed from your wishlist")}
+    function addToCart(id){const p=products.find(x=>x.id===id),existing=cart.find(x=>x.id===id);if(existing)existing.qty++;else cart.push({...p,qty:1});renderCart();showToast(p.name+" added to your bag")}
+    function changeQty(id,n){const p=cart.find(x=>x.id===id);if(!p)return;p.qty+=n;if(p.qty<1)cart.splice(cart.indexOf(p),1);renderCart()}
+    function renderCart(){
+      const count=cart.reduce((s,p)=>s+p.qty,0),total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+      document.getElementById("cartCount").textContent=count;document.getElementById("cartTotal").textContent=money(total);
+      document.getElementById("emptyCart").hidden=cart.length>0;document.getElementById("cartSummary").hidden=cart.length===0;
+      document.getElementById("cartItems").innerHTML=cart.map(p=>`<div class="cart-line"><div><strong>${p.name}</strong><div class="text-muted mt-1">${money(p.price)} each</div><div class="qty mt-2"><button onclick="changeQty(${p.id},-1)" aria-label="Decrease quantity">−</button><span class="mx-2">${p.qty}</span><button onclick="changeQty(${p.id},1)" aria-label="Increase quantity">+</button></div></div><strong>${money(p.price*p.qty)}</strong></div>`).join("");
+    }
+    function checkout(){showToast("Demo checkout: connect a payment provider to accept real orders.")}
+    function showToast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2600)}
+    document.getElementById("newsletterForm").addEventListener("submit",e=>{e.preventDefault();document.getElementById("newsletterMessage").textContent="Thanks, lovely! Newsletter signup is a demo until connected to an email service.";e.target.reset()});
+    document.getElementById("year").textContent=new Date().getFullYear();
+    renderProducts();renderCart();
+  </script>
+</body>
+</html>
